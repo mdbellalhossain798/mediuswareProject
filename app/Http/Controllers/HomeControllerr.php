@@ -66,49 +66,6 @@ class HomeController extends Controller
         $currentBalance=($sumDiposit - $sumWithdrawalFee) +  $sumWithdrawal  ;
         return view('user_withdrawal', ['sumWithdrawal' => $sumWithdrawal,'currentBalance'=>$currentBalance]);
     }
-    public function userDiposit()
-    {      
-        
-        return view('user_diposit');
-    }
 
-    protected function saveWithdrawal(Request $request)
-    {
-       DB::beginTransaction();
-        try {   
-                $transtion= Transaction::create([
-                    'user_id' => Auth::id(),
-                    'transactions_type' => $request->trn_type,              
-                    'amount' => - $request->amount, 
-                    'fee' =>$request->fee, 
-                ]);
-            DB::commit();
-            $message=['meg'=>'success'];
-        } catch (\Throwable $th) {
-            
-          DB::rollback();
-          $message=['meg'=>'Fail'];
-        }
-          return redirect()->route('withdrawal')->with($message);
-      
-    }
-    protected function saveDiposit(Request $request)
-    {
-       DB::beginTransaction();
-        try {   
-                $transtion= Transaction::create([
-                    'user_id' => Auth::id(),
-                    'transactions_type' => $request->trn_type,              
-                    'amount' => $request->amount, 
-                ]);
-            DB::commit();
-            $message=['meg'=>'success'];
-        } catch (\Throwable $th) {
-            
-          DB::rollback();
-          $message=['meg'=>'Fail'];
-        }
-          return redirect()->route('diposit')->with($message);
-      
-    }
+  
 }

@@ -26,6 +26,20 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Menu
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- Dropdown items go here -->
+                        <a class="dropdown-item" href="{{route('home')}}">Current Balance</a>
+                        <a class="dropdown-item" href="{{route('diposit')}}">All Diposit</a>
+                        <a class="dropdown-item" href="{{route('withdrawal')}}">All Withdrawal</a>
+                        <a class="dropdown-item" href="{{route('user-withdrawal')}}">User Withdrawal</a>
+                        <a class="dropdown-item" href="{{route('user-diposit')}}">User Diposit</a>
+                       
+                    </div>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -76,5 +90,6 @@
             @yield('content')
         </main>
     </div>
+    @stack('js_right')
 </body>
 </html>

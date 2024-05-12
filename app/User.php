@@ -15,8 +15,12 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class,'user_id'); // Use "hasMany" to define the relationship
+    }
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','account_type','balance','id','created_at'
     ];
 
     /**
