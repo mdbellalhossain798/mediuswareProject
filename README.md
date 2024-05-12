@@ -1,8 +1,9 @@
-laravel version 7.29
-Need php version 7 >=
-project clonne from master branch
-Database name =create Database with name mediusware
-run command php artisan migration
-create registration
-login user
-all menu is in menu dropdown
+1. laravel version 7.29
+2. Need php version 7 >=
+3. project clonne from master branch
+4. run composer update
+5. Database name =create Database with name mediusware
+6. run command php artisan migration
+7. create registration
+8. login user
+9. all menu is in menu dropdown
